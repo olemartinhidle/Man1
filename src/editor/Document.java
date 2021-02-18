@@ -17,7 +17,6 @@ import java.util.LinkedList;
  * @author evenal
  */
 
-
 public class Document {
 
     /** Document data structure(s) */

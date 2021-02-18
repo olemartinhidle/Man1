@@ -3,6 +3,8 @@ package editor;
 
 import editor.display.CharacterDisplay;
 
+import java.util.LinkedList;
+
 /**
  * This class represents the document being edited. Using a 2d array
  * to hold the document content is probably not a very good choice.
@@ -19,11 +21,12 @@ import editor.display.CharacterDisplay;
 public class Document {
 
     /** Document data structure(s) */
+
     // pointer to the
     CharacterDisplay display;
 
     public Document(CharacterDisplay display) {
-        //set up data structure
+            LinkedList<String> list = new LinkedList();
 
         this.display = display;
     }
@@ -38,6 +41,7 @@ public class Document {
      * the data structure(s) for Document first. Then finish these
      * methods
      */
+
     public void insertLine() {
         // create a new line in the data structure
         updateDisplay();
@@ -48,17 +52,19 @@ public class Document {
 
         updateDisplay();
     }
-/**
+
     public char deleteNext() {
+        return deleteNext();
     }
 
     public char deletePrev() {
+        return deletePrev();
     }
 
     public void moveCursor(String direction) {
 
     }
-
+/**
     private void updateDisplay(int line) {
         // for all visible characterso
         // show them in the rightplace

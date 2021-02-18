@@ -1,134 +1,86 @@
+/**
+ * Test class, written following guide from GeeksForGeeks
+ * https://www.geeksforgeeks.org/doubly-linked-list/
+ */
 package editor;
 
-import java.util.ListIterator;
 
 public class DoublyLinkedList {
+    Node head;
 
-    Node head, tail = null;
+    public void addInFront(int new_data)
+    {
+
+        Node new_Node = new Node(new_data);
 
 
-    public void addNode(String data) {
+        new_Node.next = head;
+        new_Node.prev = null;
 
-        Node newNode = new Node(data);
 
-        if(head == null) {
+        if (head != null)
+            head.prev = new_Node;
 
-            head = tail = newNode;
 
-            head.previous = null;
-
-            tail.next = null;
-        }
-        else {
-
-            tail.next = newNode;
-
-            newNode.previous = tail;
-
-            tail = newNode;
-
-            tail.next = null;
-        }
+        head = new_Node;
     }
+    public void InsertAfter(Node prev_Node, int new_data)
+    {
 
-    public void display() {
 
-        Node current = head;
-        if(head == null) {
-            System.out.println("List is empty");
+        if (prev_Node == null) {
+            System.out.println("The given previous node cannot be NULL ");
             return;
         }
-        System.out.println("Nodes of doubly linked list: ");
-        while(current != null) {
 
 
-            System.out.print(current.data + " ");
-            current = current.next;
+        Node new_node = new Node(new_data);
+
+
+        new_node.next = prev_Node.next;
+
+
+        prev_Node.next = new_node;
+
+
+        new_node.prev = prev_Node;
+
+
+        if (new_node.next != null)
+            new_node.next.prev = new_node;
+    }
+
+    void addAtEnd(int new_data)
+    {
+
+        Node new_node = new Node(new_data);
+
+        Node last = head;
+
+
+        new_node.next = null;
+
+
+        if (head == null) {
+            new_node.prev = null;
+            head = new_node;
+            return;
         }
+
+
+        while (last.next != null)
+            last = last.next;
+
+
+        last.next = new_node;
+
+
+        new_node.prev = last;
     }
 
-    public static void main(String[] args) {
-
-        DoublyLinkedList List = new DoublyLinkedList();
-        //Add nodes to the list
-        List.addNode("A");
-        List.addNode("B");
-        List.addNode("C");
-        List.addNode("D");
-        List.addNode("E");
-        List.addNode("F");
-        List.addNode("G");
-        List.addNode("H");
-        List.addNode("I");
-        List.addNode("J");
-        List.addNode("K");
-        List.addNode("L");
-        List.addNode("M");
-        List.addNode("N");
-        List.addNode("O");
-        List.addNode("P");
-        List.addNode("Q");
-        List.addNode("R");
-        List.addNode("S");
-        List.addNode("T");
-        List.addNode("U");
-        List.addNode("V");
-        List.addNode("W");
-        List.addNode("X");
-        List.addNode("Y");
-        List.addNode("Z");
-        List.addNode("Æ");
-        List.addNode("Ø");
-        List.addNode("Å");
-        List.addNode("a");
-        List.addNode("b");
-        List.addNode("c");
-        List.addNode("d");
-        List.addNode("e");
-        List.addNode("f");
-        List.addNode("g");
-        List.addNode("h");
-        List.addNode("i");
-        List.addNode("j");
-        List.addNode("k");
-        List.addNode("l");
-        List.addNode("m");
-        List.addNode("n");
-        List.addNode("o");
-        List.addNode("p");
-        List.addNode("q");
-        List.addNode("r");
-        List.addNode("s");
-        List.addNode("t");
-        List.addNode("u");
-        List.addNode("v");
-        List.addNode("w");
-        List.addNode("x");
-        List.addNode("y");
-        List.addNode("z");
-        List.addNode("æ");
-        List.addNode("ø");
-        List.addNode("å");
-        List.addNode("1");
-        List.addNode("2");
-        List.addNode("3");
-        List.addNode("4");
-        List.addNode("5");
-        List.addNode("6");
-        List.addNode("7");
-        List.addNode("8");
-        List.addNode("9");
-        List.addNode(",");
-        List.addNode(".");
-        List.addNode(";");
-        List.addNode(":");
-        List.addNode("!");
-        List.addNode("?");
-        List.addNode(" ");
-        List.addNode("" +
-                "");
-        List.display();
-
-
-    }
 }
+
+
+
+
+

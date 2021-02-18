@@ -14,7 +14,7 @@ import javax.swing.AbstractAction;
  */
 public abstract class EditorAction extends AbstractAction {
 
-    protected char ch;
+    public char ch;
     Editor editor;
 
     public EditorAction(String name, Editor editor) {

@@ -1,14 +1,12 @@
 package editor;
 
 class Node {
-    String data;
-    Node previous;
+    int data;
+    Node prev;
     Node next;
 
-    public Node(String data) {
+    Node(int d) {
 
-        this.data = data;
+        data = d;
     }
-
-
 }
